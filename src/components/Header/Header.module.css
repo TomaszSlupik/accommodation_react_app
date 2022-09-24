@@ -1,0 +1,32 @@
+.color1 {
+	color: #2c3346;
+}
+.color2 {
+	color: #463f4d;
+}
+.color3 {
+	color: #655960;
+}
+.color4 {
+	color: #80787a;
+}
+.color5 {
+	color: #8c8d8d;
+}
+
+.header {
+	height: 500px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url("../../assets/img/headerBig.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+@media (max-width: 568px) {
+	.header {
+		background-image: url("../../assets/img/headerSmall.jpg");
+	}
+}
