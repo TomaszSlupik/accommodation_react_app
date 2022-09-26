@@ -1,12 +1,37 @@
 import React from "react";
-import styles from "./Searchbar.module.css"
+import { useState } from "react";
+import styles from "./Searchbar.module.css";
 
 function Searchbar() {
+	const [term, setTerm] = useState("");
+
+	const search = () => {
+		console.log(`szukaj`, term);
+	};
+
+	const updateTerm = (e) => {
+		setTerm(e.target.value);
+	};
+
+	const onKeyDownHandler = (e) => {
+		if (e.key === "Enter") {
+			search();
+		}
+	};
+
 	return (
 		<div>
-			<input className={styles.input} type="text" placeholder="szukaj" />
-			<button className={styles.btn}>Szukaj</button>
-       
+			<input
+				value={term}
+				onKeyDown={onKeyDownHandler}
+				onChange={updateTerm}
+				className={styles.input}
+				type="text"
+				placeholder="szukaj"
+			/>
+			<button className={styles.btn} onClick={search}>
+				Szukaj
+			</button>
 		</div>
 	);
 }
