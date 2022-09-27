@@ -2,7 +2,7 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import Hotels from "./components/Hotels/Hotels";
-import Hotel from "./components/Hotels/Hotel/Hotel";
+import HotelDetails from "./components/Hotels/Hotel/Hotel";
 
 function App() {
 	return (
@@ -10,7 +10,7 @@ function App() {
 			<Header />
 			<Menu />
 			<Hotels />
-			<Hotel />
+			<HotelDetails />
 		</div>
 	);
 }

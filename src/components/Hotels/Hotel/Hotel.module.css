@@ -18,6 +18,7 @@
 
 
 .box {
+	position: relative;
 	width: 300px;
 	height: 300px;
 	border: 1px solid black;
@@ -28,6 +29,10 @@
 
 }
 
+.name {
+font-size: 1.2rem;
+color: white;
+}
 
 .one {
 	background-image: url("../../../assets/img/hotelone.jpg");
