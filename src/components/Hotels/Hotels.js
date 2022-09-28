@@ -1,10 +1,12 @@
-import React from "react";
+import React, {Component} from "react";
+import Hotel from './Hotel/Hotel'
 
-class Hotels extends React.Component {
+class Hotels extends Component {
 	render() {
 		return (
 			<div>
 				<h3>Oferta:</h3>
+				{this.props.hotels.map (hotel =><Hotel key={hotel.id} {...hotel}/>)}
 			</div>
 		);
 	}
