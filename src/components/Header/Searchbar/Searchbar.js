@@ -2,11 +2,13 @@ import React from "react";
 import { useState } from "react";
 import styles from "./Searchbar.module.css";
 
-function Searchbar() {
+function Searchbar(props) {
+	
 	const [term, setTerm] = useState("");
 
 	const search = () => {
-		console.log(`szukaj`, term);
+		// console.log(`szukaj`, term);
+		props.onSearch(term)
 	};
 
 	const updateTerm = (e) => {
@@ -16,6 +18,7 @@ function Searchbar() {
 	const onKeyDownHandler = (e) => {
 		if (e.key === "Enter") {
 			search();
+			
 		}
 	};
 

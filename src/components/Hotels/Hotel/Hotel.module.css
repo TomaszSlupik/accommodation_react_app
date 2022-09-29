@@ -15,6 +15,7 @@
 }
 
 .box {
+	position: relative;
 	width: 80%;
 	height: 300px;
 	border: 1px solid black;
@@ -25,8 +26,47 @@
 }
 
 .name {
-	font-size: 1.2rem;
-	color: white;
+	font-size: 2rem;
+	font-weight: bold;
+	color: black;
+}
+
+.boxfirst {
+	display: flex;
+	flex-direction: row;
+}
+
+.boxsecond {
+	display: flex;
+	flex-direction: column;
+}
+
+.img {
+	width: 40%;
+	height: 220px;
+	border: 1px solid black;
+	margin-left: 1em;
+}
+
+.city {
+	font-size: 1.5rem;
+	padding: 0.2em 0.4em;
+	font-weight: 400;
+}
+
+.mark {
+	font-size: 1.5rem;
+	padding: 0em 0.4em;
+	font-weight: 400;
+}
+
+.description {
+	font-size: 1.5rem;
+	position: absolute;
+	font-weight: 400;
+	padding: 0em 0.4em;
+	height: 100%;
+	width: 60%;
 }
 
 .one {
@@ -56,5 +96,10 @@
 @media (max-width: 568px) {
 	.wrapperbox {
 		grid-template-columns: repeat(1, 1fr);
+	}
+
+	.mark,
+	.city {
+		font-size: 1.2rem;
 	}
 }
