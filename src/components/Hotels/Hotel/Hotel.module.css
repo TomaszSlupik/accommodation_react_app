@@ -93,6 +93,7 @@
 	background-image: url("../../../assets/img/hotelsix.jpg");
 }
 
+
 @media (max-width: 568px) {
 	.wrapperbox {
 		grid-template-columns: repeat(1, 1fr);
