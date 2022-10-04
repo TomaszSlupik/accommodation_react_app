@@ -3,7 +3,7 @@ import Header from "./components/Header/Header";
 import Menu from "./components/Menu/Menu";
 import Hotels from "./components/Hotels/Hotels";
 import React, { Component } from "react";
-import Hotel from "./components/Hotels/Hotel/Hotel";
+import Loading from "./components/UI/Loading/Loading";
 
 class App extends Component {
 	hotels = [
@@ -21,6 +21,7 @@ class App extends Component {
 			id: 2,
 			name: "Armanis",
 			city: "Grecja",
+			description: "",
 			mark: 9,
 			image: "",
 		},
@@ -28,33 +29,40 @@ class App extends Component {
 		{
 			id: 3,
 			name: "Nosal",
-			mark: 9.5,
 			city: "Grecja",
+			description: "",
+			mark: 9.5,
+			image: "",
 		},
 		{
 			id: 4,
 			name: "Kaczkowski",
-			mark: 8.8,
 			city: "Grecja",
+			description: "",
+			mark: 8.8,
+			image: "",
 		},
 		{
 			id: 5,
 			name: "Drenski",
-			mark: 9.4,
 			city: "Grecja",
+			description: "",
+			mark: 9.4,
+			image: "",
 		},
 		{
 			id: 6,
 			name: "Warszawski",
-			mark: 8.4,
 			city: "Grecja",
-		}
+			description: "",
+			mark: 8.4,
+			image: "",
+		},
 	];
 	state = {
 		hotels: [],
-		loading: true
+		loading: true,
 	};
-
 
 	searchHandler(term) {
 		console.log(`Szukaj z app`, term);
@@ -79,7 +87,7 @@ class App extends Component {
 				<Header onSearch={(term) => this.searchHandler(term)} />
 				<Menu />
 				{this.state.loading ? (
-					<p>Ładowanie danych...</p>
+					<Loading />
 				) : (
 					<Hotels hotels={this.state.hotels} />
 				)}

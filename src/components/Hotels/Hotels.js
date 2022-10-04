@@ -1,5 +1,10 @@
 import React, {Component} from "react";
 import Hotel from './Hotel/Hotel'
+import PropTypes from "prop-types"
+
+const propTypes = {
+	hotels: PropTypes.array.isRequired
+}
 
 class Hotels extends Component {
 	render() {
@@ -12,4 +17,8 @@ class Hotels extends Component {
 	}
 }
 
+Hotels.propTypes = propTypes
+
 export default Hotels;
+
+

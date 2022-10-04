@@ -1,5 +1,13 @@
 import React from "react";
 import styles from "./Hotel.module.css";
+import PropTypes from "prop-types";
+
+const propTypes = {
+	name: PropTypes.string.isRequired,
+	city: PropTypes.string.isRequired,
+	description: PropTypes.string,
+	mark: PropTypes.number.isRequired
+}	
 
 function Hotel(props) {
 	return (
@@ -23,5 +31,7 @@ function Hotel(props) {
 		
 }
 
-	
+
+Hotel.propTypes = propTypes
+
 export default Hotel;
