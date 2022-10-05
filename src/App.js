@@ -4,6 +4,8 @@ import Menu from "./components/Menu/Menu";
 import Hotels from "./components/Hotels/Hotels";
 import React, { Component } from "react";
 import Loading from "./components/UI/Loading/Loading";
+import Layout from "./components/Layout/Layout";
+import Footer from "./components/Footer/Footer";
 
 class App extends Component {
 	hotels = [
@@ -21,7 +23,7 @@ class App extends Component {
 			id: 2,
 			name: "Armanis",
 			city: "Grecja",
-			description: "",
+			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate beatae facere, pariatur, maxime quod molestias itaque eligendi delectus optio dolore distinctio unde! Odit, ipsam? Iusto nam sapiente est facere velit.",
 			mark: 9,
 			image: "",
 		},
@@ -30,7 +32,7 @@ class App extends Component {
 			id: 3,
 			name: "Nosal",
 			city: "Grecja",
-			description: "",
+			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate beatae facere, pariatur, maxime quod molestias itaque eligendi delectus optio dolore distinctio unde! Odit, ipsam? Iusto nam sapiente est facere velit.",
 			mark: 9.5,
 			image: "",
 		},
@@ -38,7 +40,7 @@ class App extends Component {
 			id: 4,
 			name: "Kaczkowski",
 			city: "Grecja",
-			description: "",
+			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate beatae facere, pariatur, maxime quod molestias itaque eligendi delectus optio dolore distinctio unde! Odit, ipsam? Iusto nam sapiente est facere velit.",
 			mark: 8.8,
 			image: "",
 		},
@@ -46,7 +48,7 @@ class App extends Component {
 			id: 5,
 			name: "Drenski",
 			city: "Grecja",
-			description: "",
+			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate beatae facere, pariatur, maxime quod molestias itaque eligendi delectus optio dolore distinctio unde! Odit, ipsam? Iusto nam sapiente est facere velit.",
 			mark: 9.4,
 			image: "",
 		},
@@ -54,7 +56,7 @@ class App extends Component {
 			id: 6,
 			name: "Warszawski",
 			city: "Grecja",
-			description: "",
+			description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate beatae facere, pariatur, maxime quod molestias itaque eligendi delectus optio dolore distinctio unde! Odit, ipsam? Iusto nam sapiente est facere velit.",
 			mark: 8.4,
 			image: "",
 		},
@@ -84,13 +86,16 @@ class App extends Component {
 		console.log(`Komponent wyrenderowany`);
 		return (
 			<div className="App">
-				<Header onSearch={(term) => this.searchHandler(term)} />
-				<Menu />
-				{this.state.loading ? (
+				<Layout 
+				header={<Header onSearch={(term) => this.searchHandler(term)} />}
+				menu={<Menu />}
+				content={this.state.loading ? (
 					<Loading />
 				) : (
 					<Hotels hotels={this.state.hotels} />
 				)}
+				footer={<Footer />}
+				/>
 			</div>
 		);
 	}

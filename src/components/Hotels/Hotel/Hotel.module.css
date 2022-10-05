@@ -39,32 +39,35 @@
 .boxsecond {
 	display: flex;
 	flex-direction: column;
+	position: relative;
+	text-align: left;
+	border: 1px solid black;
 }
 
 .img {
 	width: 40%;
 	height: 220px;
 	border: 1px solid black;
-	margin-left: 1em;
+
 }
 
 .city {
-	font-size: 1.5rem;
-	padding: 0.2em 0.4em;
+	font-size: 1.2rem;
 	font-weight: 400;
+	margin-left: 0.4em;
 }
 
 .mark {
-	font-size: 1.5rem;
-	padding: 0em 0.4em;
+	font-size: 1.2rem;
 	font-weight: 400;
+	margin-left: -0.8em;
+	
 }
 
 .description {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	position: absolute;
 	font-weight: 400;
-	padding: 0em 0.4em;
 	height: 100%;
 	width: 60%;
 }
