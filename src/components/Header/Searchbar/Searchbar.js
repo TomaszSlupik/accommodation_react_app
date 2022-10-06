@@ -25,6 +25,8 @@ function Searchbar(props) {
 		}
 	};
 
+	
+
 	return (
 		<div>
 			<input
@@ -35,9 +37,12 @@ function Searchbar(props) {
 				type="text"
 				placeholder="szukaj"
 			/>
+			<div className={styles.row}>
 			<button className={styles.btn} onClick={search}>
 				Szukaj
 			</button>
+			<div className={styles.brush} onClick={props.onChange}><i className={`fa-solid fa-brush`}></i></div>
+			</div>
 		</div>
 	);
 }

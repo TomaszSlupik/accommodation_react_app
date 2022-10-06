@@ -64,6 +64,7 @@ class App extends Component {
 	state = {
 		hotels: [],
 		loading: true,
+		blue_color: 'primary'
 	};
 
 	searchHandler(term) {
@@ -82,19 +83,25 @@ class App extends Component {
 		console.log(`Konstruktor zamontowany`);
 	}
 
+	changeColor = () => {
+		const danger_color = this.state.blue_color === 'primary' ? 'danger' : 'primary'
+		this.setState ({blue_color : danger_color})
+		console.log(`test`)
+	}
+
 	render() {
 		console.log(`Komponent wyrenderowany`);
 		return (
 			<div className="App">
 				<Layout 
-				header={<Header onSearch={(term) => this.searchHandler(term)} />}
-				menu={<Menu />}
+				header={<Header onSearch={(term) => this.searchHandler(term)} blue_color={this.state.blue_color}/>}
+				menu={<Menu blue_color={this.state.blue_color}/>}
 				content={this.state.loading ? (
-					<Loading />
+					<Loading blue_color={this.state.blue_color} onChange={this.changeColor}/>
 				) : (
-					<Hotels hotels={this.state.hotels} />
+					<Hotels hotels={this.state.hotels} blue_color={this.state.blue_color}/>
 				)}
-				footer={<Footer />}
+				footer={<Footer blue_color={this.state.blue_color}/>}
 				/>
 			</div>
 		);

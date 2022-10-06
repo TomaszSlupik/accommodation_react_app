@@ -11,7 +11,7 @@ class Hotels extends Component {
 		return (
 			<div>
 				<h3>Oferta:</h3>
-				{this.props.hotels.map (hotel =><Hotel key={hotel.id} {...hotel}/>)}
+				{this.props.hotels.map (hotel =><Hotel key={hotel.id} {...hotel} blue_color={this.props.blue_color}/>)}
 			</div>
 		);
 	}

@@ -21,6 +21,7 @@ function Hotel(props) {
 						<div className={styles.city}><b>Miejsce:</b> {props.city}</div>
 						<div className={styles.mark}><b>Ocena:</b> {props.mark}</div>
 					 	<div className={styles.description}><b>Opis: </b>{props.description}</div>
+						 <button type="button" className={`${styles.btn} btn btn-${props.blue_color}`}>Otwórz</button>
 					</div>
 				</div>
 				</div>
