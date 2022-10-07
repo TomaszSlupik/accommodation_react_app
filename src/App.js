@@ -6,8 +6,12 @@ import React, { Component } from "react";
 import Loading from "./components/UI/Loading/Loading";
 import Layout from "./components/Layout/Layout";
 import Footer from "./components/Footer/Footer";
+import ColorContext from "./components/context/ColorContext";
+import AuthContext from "./components/context/AuthContext";
+
 
 class App extends Component {
+	static contextType = ColorContext
 	hotels = [
 		{
 			id: 1,
@@ -84,26 +88,39 @@ class App extends Component {
 	}
 
 	changeColor = () => {
-		const danger_color = this.state.blue_color === 'primary' ? 'danger' : 'primary'
-		this.setState ({blue_color : danger_color})
+		const warning_color = this.state.blue_color === 'primary' ? 'warning' : 'primary';
+		this.setState ({blue_color : warning_color})
 		console.log(`test`)
 	}
 
 	render() {
 		console.log(`Komponent wyrenderowany`);
 		return (
+			<AuthContext.Provider>
+			<ColorContext.Provider value={{
+				blue_color: this.state.blue_color,
+				onChange: this.changeColor}}>
+
 			<div className="App">
 				<Layout 
-				header={<Header onSearch={(term) => this.searchHandler(term)} blue_color={this.state.blue_color}/>}
-				menu={<Menu blue_color={this.state.blue_color}/>}
+				header={<Header onSearch={(term) => this.searchHandler(term)} blue_color={this.context}
+				onChange={this.changeColor}
+				
+			 />
+			
+				}
+				
+				menu={<Menu blue_color={this.context}/>}
 				content={this.state.loading ? (
-					<Loading blue_color={this.state.blue_color} onChange={this.changeColor}/>
+					<Loading blue_color={this.context} />
 				) : (
-					<Hotels hotels={this.state.hotels} blue_color={this.state.blue_color}/>
+					<Hotels hotels={this.state.hotels} blue_color={this.context}/>
 				)}
-				footer={<Footer blue_color={this.state.blue_color}/>}
+				footer={<Footer blue_color={this.context}/>}
 				/>
 			</div>
+			</ColorContext.Provider>
+			</AuthContext.Provider>
 		);
 	}
 }

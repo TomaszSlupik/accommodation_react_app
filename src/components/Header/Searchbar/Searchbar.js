@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import styles from "./Searchbar.module.css";
 import PropTypes from "prop-types";
+import ColorContext from "../../context/ColorContext";
 
 const propTypes = {
 	onSearch: PropTypes.func.isRequired
@@ -25,10 +26,13 @@ function Searchbar(props) {
 		}
 	};
 
-	
 
+	
 	return (
-		<div>
+		<ColorContext.Consumer>
+		{
+			({blue_color}) =>
+			<div>
 			<input
 				value={term}
 				onKeyDown={onKeyDownHandler}
@@ -41,9 +45,20 @@ function Searchbar(props) {
 			<button className={styles.btn} onClick={search}>
 				Szukaj
 			</button>
-			<div className={styles.brush} onClick={props.onChange}><i className={`fa-solid fa-brush`}></i></div>
+			<ColorContext.Consumer>
+			{
+				({onChange}) =>
+<div className={styles.brush} onClick={onChange}><i className={`fa-solid fa-brush`}></i></div>
+			}
+			
+			</ColorContext.Consumer>
+			
 			</div>
 		</div>
+		}
+		
+		</ColorContext.Consumer>
+		
 	);
 }
 

@@ -5,7 +5,7 @@ import styles from "./Header.module.css";
 function Header(props) {
 	return <header className={styles.header}>
 		<div>
-			<Searchbar onSearch={props.onSearch} />
+			<Searchbar onSearch={props.onSearch} onClick={props.onChange}/>
 		</div>
 	</header>;
 }
