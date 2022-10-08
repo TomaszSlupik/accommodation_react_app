@@ -68,7 +68,8 @@ class App extends Component {
 	state = {
 		hotels: [],
 		loading: true,
-		blue_color: 'primary'
+		blue_color: 'primary', 
+		isAuthenticated: true
 	};
 
 	searchHandler(term) {
@@ -96,7 +97,12 @@ class App extends Component {
 	render() {
 		console.log(`Komponent wyrenderowany`);
 		return (
-			<AuthContext.Provider>
+			<AuthContext.Provider value={{isAuthenticated:this.state.isAuthenticated,
+			login: ()=> this.setState({isAuthenticated: true}),
+			logout: ()=> this.setState({isAuthenticated: false}),
+		
+		}}
+			>
 			<ColorContext.Provider value={{
 				blue_color: this.state.blue_color,
 				onChange: this.changeColor}}>
