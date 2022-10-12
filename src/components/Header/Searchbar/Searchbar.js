@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import styles from "./Searchbar.module.css";
 import PropTypes from "prop-types";
 import ColorContext from "../../context/ColorContext";
+import { useRef } from "react";
 
 const propTypes = {
 	onSearch: PropTypes.func.isRequired
@@ -26,7 +27,15 @@ function Searchbar(props) {
 		}
 	};
 
+	const inputRef = useRef(null)
 
+	const focusInput = () => {
+		inputRef.current.focus()
+	}
+
+	useEffect (()=>{
+		focusInput()
+	},[])
 	
 	return (
 		<ColorContext.Consumer>
@@ -34,10 +43,11 @@ function Searchbar(props) {
 			({blue_color}) =>
 			<div>
 			<input
+				ref={inputRef}
 				value={term}
 				onKeyDown={onKeyDownHandler}
 				onChange={updateTerm}
-				className={styles.input}
+				className={styles.input} 
 				type="text"
 				placeholder="szukaj"
 			/>
